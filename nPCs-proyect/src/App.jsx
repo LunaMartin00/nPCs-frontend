@@ -1,10 +1,12 @@
 import React from "react";
-import Navbar from "./components/navbar.jsx";
+import Header from "./components/Header.jsx";
+import Navbar from "./components/navbar.jsx"
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
     <div>
+      <Header/>
       <Navbar />
       <main style={{ padding: "24px", textAlign: "center" }}>
         <h1>AVANCE.</h1>
