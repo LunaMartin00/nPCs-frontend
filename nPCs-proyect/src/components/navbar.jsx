@@ -1,67 +1,74 @@
-import React from "react";
-import logo from "../assets/Logo.png"; 
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Input,
+  InputGroup,
+} from 'reactstrap';
+import './navbar.css';
+import PC2Icon from '../assets/PC2.svg';
+import CpuIcon from '../assets/cpu.svg';
+import PCcomIcon from '../assets/PCcom.svg';
 
-export default function Navbar() {
-  const goHome = () => (window.location.href = "/");
+function Navigationbar(args) {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const q = e.target.search.value.trim();
-    if (!q) return;
-    console.log("Buscando:", q);
-  };
-
-  const bar = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: 16,
-    padding: "12px 20px",
-    background: "#021644",
-    color: "#fff",
-  };
-
-  const center = {
-    flex: 1,
-    display: "flex",
-    justifyContent: "center",
-    gap: 0,
-    maxWidth: 700,
-    margin: "0 12px",
-  };
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <header style={bar}>
-      <button onClick={goHome} aria-label="Ir al inicio" style={{ background: "transparent", border: 0, padding: 0, cursor: "pointer" }}>
-        <img src={logo} alt="nPCs" style={{ height: 44, display: "block" }} />
-      </button>
-
-      <form onSubmit={handleSearch} style={center}>
-        <input
-          type="text"
-          name="search"
-          placeholder="Buscar componentes…"
-          aria-label="Buscar componentes"
-          style={{
-            flex: 1,
-            minWidth: 240,
-            padding: "10px 12px",
-            border: "1px solid #334155",
-            borderRight: "none",
-            borderRadius: "10px 0 0 10px",
-            outline: "none",
-            background: "#0b1220",
-            color: "#e5e7eb",
-          }}
-        />
-        <button type="submit" style={{ border: "1px solid #334155", borderRadius: "0 10px 10px 0", padding: "10px 16px", fontWeight: 600, background: "#facc15", color: "#111827", cursor: "pointer" }}>
-          Buscar
-        </button>
-      </form>
-
-      <button onClick={goHome} style={{ border: "1px solid #334155", borderRadius: 10, padding: "10px 14px", fontWeight: 600, background: "#0b1220", color: "#e5e7eb", cursor: "pointer" }}>
-        Inicio
-      </button>
-    </header>
+    <Navbar dark expand="md" className="custom-navbar" {...args}>
+      <NavbarToggler onClick={toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="me-auto align-items-center" navbar>
+          <NavItem>
+            <NavLink href="/armar-pc" className="nav-link-custom">
+              <img src={PC2Icon} alt="PC" className="nav-icon-svg" />
+              Armar PC
+            </NavLink>
+          </NavItem>
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret className="nav-link-custom">
+              <img src={CpuIcon} alt="CPU" className="nav-icon-svg" />
+              Explorar Productos
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem href="/productos/procesadores">Procesadores</DropdownItem>
+              <DropdownItem href="/productos/placas-madre">Placas Madre</DropdownItem>
+              <DropdownItem href="/productos/tarjetas-graficas">Tarjetas Gráficas</DropdownItem>
+              <DropdownItem href="/productos/memorias">Memorias RAM</DropdownItem>
+              <DropdownItem href="/productos/almacenamiento">Almacenamiento</DropdownItem>
+              <DropdownItem href="/productos/fuentes">Fuentes de Poder</DropdownItem>
+              <DropdownItem href="/productos/gabinetes">Gabinetes</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem href="/productos/todos">Ver Todos</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+          <NavItem>
+            <NavLink href="/builds" className="nav-link-custom">
+              <img src={PCcomIcon} alt="Builds" className="nav-icon-svg" />
+              Builds de Usuarios
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <InputGroup className="search-bar">
+          <Input
+            type="search"
+            placeholder="Buscar productos..."
+            className="search-input"
+          />
+        </InputGroup>
+      </Collapse>
+    </Navbar>
   );
 }
+
+export default Navigationbar;

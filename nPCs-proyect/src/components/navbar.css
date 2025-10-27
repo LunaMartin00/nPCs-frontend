@@ -1,0 +1,112 @@
+.custom-navbar {
+  background-color: #1E293B!important;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: 'Montserrat';
+}
+
+.nav-link-custom {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #4a9eff !important;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+.nav-icon-svg {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.nav-link-custom:hover .nav-icon-svg {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(500%) hue-rotate(180deg) brightness(100%);
+}
+
+.search-bar {
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-input {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 0.5rem 1rem;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-input:focus {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: #4a9eff !important;
+  box-shadow: 0 0 0 0.2rem rgba(74, 158, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+.search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  background-image: url('../assets/X.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+}
+
+.search-input::-webkit-search-cancel-button:hover {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(90%) saturate(500%) hue-rotate(180deg) brightness(100%);
+}
+
+.dropdown-menu {
+  background-color: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-item {
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(74, 158, 255, 0.2);
+  color: #4a9eff;
+}
+
+.dropdown-toggle::after {
+  margin-left: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+  .custom-navbar {
+    padding: 1rem;
+  }
+  
+  .search-bar {
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+  
+  .nav-link-custom {
+    padding: 0.75rem 0.5rem !important;
+  }
+}

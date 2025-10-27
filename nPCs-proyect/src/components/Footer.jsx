@@ -1,4 +1,4 @@
-import logo from "../assets/Logo.png";
+import logo from "../assets/Processor 1.svg";
 import '../styles/App.css';
 
 export default Footer
@@ -40,7 +40,7 @@ function Footer() {
                     </div>
 
                     <div className = 'footer_section'>
-                    <img src={logo} alt="nPCs" style={{ height: 44, display: "block" }} />
+                    <img src={logo} alt="nPCs"  />
                         <div className = "footer_socials">
                             <ul>
                                 <a href="#"> <i className = "fab fa-facebook-f"></i></a>
