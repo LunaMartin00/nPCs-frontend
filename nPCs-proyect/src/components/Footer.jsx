@@ -1,11 +1,10 @@
+import React from "react";
 import logo from "../assets/Processor 1.svg";
-import '../styles/App.css';
+import "../styles/App.css";
 
 export default Footer
 
-function Footer() {
-
-
+function Footer({ onShowAbout }) {
     return (
 
     <footer className = "footer">
@@ -14,7 +13,7 @@ function Footer() {
                     <div className = 'footer_section'>
                         <h4>Compañia </h4>
                         <ul>
-                            <li> <a href = "#"> Sobre nosotros </a></li>
+                            <li> <a href = "#" onClick={(e)=>{e.preventDefault(); if(onShowAbout) onShowAbout();}}> Sobre nosotros </a></li>
                             <li> <a href = "#"> Carreras </a></li>
                             <li> <a href = "#"> Blog </a></li>
                             <li> <a href = "#"> Prensa </a></li>
@@ -54,10 +53,7 @@ function Footer() {
                 </div>
             </div>
         </div>
-    </footer>
-
-    
-    )
-
+        </footer>
+        )
 
 }
