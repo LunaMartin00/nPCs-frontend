@@ -41,10 +41,12 @@ function Footer() {
 
                     <div className = 'footer_section'>
                     <img src={logo} alt="nPCs"  />
+
                         <div className = "footer_socials">
+                            <br/>
                             <ul>
                                 <a href="#"> <i className = "fab fa-facebook-f"></i></a>
-                                <a href="#"> <i className = "fab fa-instragram"></i></a>
+                                <a href="#"> <i className = "fab fa-instagram"></i></a>
                                 <a href="#"> <i className = "fab fa-twitter"></i></a>
                                 <a href="#"> <i className = "fab fa-linkedin"></i></a>
                             </ul>

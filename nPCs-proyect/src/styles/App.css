@@ -38,6 +38,8 @@ body {
 .footer_section {
     width: 25%;
     padding: 0 15px;
+    line-height: 40px;
+
 }
 
 .footer_section h4 {
