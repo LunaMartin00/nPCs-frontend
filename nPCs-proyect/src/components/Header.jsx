@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="header-bar">
       <button onClick={goHome} className="header-logo-button">
-        <img src={logo} alt="OnPCs" className="header-logo" />
+        <img src={logo} alt="nPCs" className="header-logo" />
       </button>
 
       <nav className="header-nav">
