@@ -2,9 +2,7 @@ import React from "react";
 import logo from "../assets/Processor 1.svg";
 import "../styles/App.css";
 
-export default Footer
-
-function Footer({ onShowAbout }) {
+export default function Footer({ onShowAbout }) {
     return (
 
     <footer className = "footer">

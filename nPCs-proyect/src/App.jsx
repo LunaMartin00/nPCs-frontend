@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Navigationbar from "./components/navbar.jsx"
 import Footer from "./components/Footer.jsx";
@@ -46,3 +47,4 @@ export default function App() {
     </div>
   );
 }
+
