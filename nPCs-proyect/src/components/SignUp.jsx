@@ -13,14 +13,14 @@ export default function SignUp() {
         
         <Row className="row1">
             <h1>¿Que rol quieres desempeñar dentro de la página?</h1>
-            <Col sm="6">
+            <Col sm="5">
                 <Card className = "custome-card" body>
                 <CardTitle className = "custome-card-tittle" tag="h5">
                     Comprador
                 </CardTitle>
 
                  <img src={user} alt="user" className="user-logo" />
-
+                
                 <CardText>
                     Ademas de poder ver nuestro catalogo tendrás acceso a la compra de este de manera directa.
                 </CardText>
@@ -31,7 +31,7 @@ export default function SignUp() {
                 </Link>
                 </Card>
             </Col>
-            <Col sm="6">
+            <Col sm="5">
                 <Card className = "custome-card" body>
                 <CardTitle className = "custome-card-tittle" tag="h5">
                     Tienda

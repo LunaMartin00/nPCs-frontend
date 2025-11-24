@@ -27,11 +27,11 @@ export default function SignIn() {
     setError('');
 
     try {
-      // Tu lógica de login aquí
+      
       console.log('Login attempt:', formData);
       
-      // Simulación de login exitoso
-      setTimeout(() => {
+
+    setTimeout(() => {
         navigate('/');
       }, 1000);
 

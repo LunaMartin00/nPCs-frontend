@@ -31,8 +31,8 @@ export default function Footer({ onShowAbout }) {
                     <div className = 'footer_section'>
                         <h4>Cuenta</h4>
                         <ul>
-                            <li> <a href = "#"> Iniciar sesion </a></li>
-                            <li> <a href = "#"> Registrarse </a></li>
+                            <li> <a href = "/signIn"> Iniciar sesion </a></li>
+                            <li> <a href = "/register"> Registrarse </a></li>
                         </ul>
                     </div>
 

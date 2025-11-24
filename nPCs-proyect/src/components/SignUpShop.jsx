@@ -71,7 +71,9 @@ export default function SignupForm  () {
 
       console.log('Usuario creado:', data);
       
-      navigate('/');
+       setTimeout(() => {
+        navigate('/');
+      }, 1000);
 
       setFormData({
         firstNames: '',

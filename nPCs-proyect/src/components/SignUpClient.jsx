@@ -57,21 +57,19 @@ export default function SignupForm  () {
         password: formData.password
       };
 
-      const response = await axios.post('http://localhost:5000/signUp/cliente', userData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      const data = await response.json();
+      const response = await axios.post(
+          'http://localhost:5000/signUp/cliente',
+          userData
+      );
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Error al registrar usuario');
-      }
+      const data = response.data;
 
       console.log('Usuario creado:', data);
       
-      navigate('/');
+      alert("Usuario creado con éxito!")
+       setTimeout(() => {
+        navigate('/');
+      }, 1000);
 
       setFormData({
         firstNames: '',
@@ -113,7 +111,7 @@ export default function SignupForm  () {
           <div className="form-group">
             <label htmlFor="firstNames"> Nombres </label>
             <input
-              type="firstNames"
+              type="text"
               id="firstNames"
               name="firstNames"
               value={formData.firstNames}
@@ -126,7 +124,7 @@ export default function SignupForm  () {
           <div className="form-group">
             <label htmlFor="lastNames"> Apellidos </label>
             <input
-              type="lastNames"
+              type="text"
               id="lastNames"
               name="lastNames"
               value={formData.lastNames}
@@ -141,7 +139,7 @@ export default function SignupForm  () {
           <div className="form-group">
             <label htmlFor="username"> Nombre de usuario </label>
             <input
-              type="username"
+              type="text"
               id="username"
               name="username"
               value={formData.username}
@@ -207,9 +205,10 @@ export default function SignupForm  () {
             </label>
           </div>
 
-          <button type="submit" className="btn-create-account">
-            Crear cuenta
+          <button type="submit" className="btn-create-account" disabled={loading}>
+            {loading ? "Creando cuenta..." : "Crear cuenta"}
           </button>
+
         </form>
       </div>
     </div>
