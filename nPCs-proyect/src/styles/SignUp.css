@@ -1,0 +1,97 @@
+ :root {
+    --blue: #1E293B!important;
+    --blue-hover: #16324F!important;
+}
+
+body {
+
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  background: #f6f7f8;
+  color: var(--blue)
+}
+
+.signup-card h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 40px 0 40px 0; /* ← Reducido el margin-top a 0 */
+  color: #333;
+}
+
+.signup-container {
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  animation: slideIn 3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from{
+        transform: translateY(-90%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+} 
+
+
+.signup-card {
+  background: white;
+  border-radius: 8px;
+  padding: 35px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+
+}
+
+.signup-form .form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.btn-create-account {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-create-account:hover {
+  background: var(--blue-hover);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}

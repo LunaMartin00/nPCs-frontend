@@ -75,7 +75,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-img {
+.user-logo{
+
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 165px;
+  height: 165px;
+
+}
+
+.shop-logo{
 
   display: block;
   margin: 0 auto 15px auto;
