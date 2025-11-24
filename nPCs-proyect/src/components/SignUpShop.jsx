@@ -13,6 +13,8 @@ export default function SignupForm  () {
     email: '',
     password: '',
     confirmPassword: '',
+    storeName: '',
+    storeUrl: '',
     acceptTerms: false
   });
 
@@ -54,23 +56,24 @@ export default function SignupForm  () {
         lastNames: formData.lastNames,
         username: formData.username,
         email: formData.email,
-        password: formData.password
+        password: formData.password,
+        storeName: formData.storeName,
+        storeUrl: formData.storeUrl
       };
 
-      const response = await axios.post('http://localhost:5000/signUp/cliente', userData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      const data = await response.json();
+      const response = await axios.post(
+        'http://localhost:5000/signUp/tienda',
+        userData
+      );
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Error al registrar usuario');
-      }
+      const data = response.data;
+
+      
 
       console.log('Usuario creado:', data);
       
+      alert("Usuario creado con éxito!");
+
        setTimeout(() => {
         navigate('/');
       }, 1000);
@@ -83,6 +86,7 @@ export default function SignupForm  () {
         password: '',
         confirmPassword: '',
         storeName: '',
+        storeUrl: '',
         acceptTerms: false
       });
 
@@ -116,7 +120,7 @@ export default function SignupForm  () {
             <div className="form-group">
               <label htmlFor="firstNames"> Nombres </label>
               <input
-                type="firstNames"
+                type="text"
                 id="firstNames"
                 name="firstNames"
                 value={formData.firstNames}
@@ -129,7 +133,7 @@ export default function SignupForm  () {
             <div className="form-group">
               <label htmlFor="lastNames"> Apellidos </label>
               <input
-                type="lastNames"
+                type="text"
                 id="lastNames"
                 name="lastNames"
                 value={formData.lastNames}
@@ -144,7 +148,7 @@ export default function SignupForm  () {
             <div className="form-group">
               <label htmlFor="username"> Nombre de usuario </label>
               <input
-                type="username"
+                type="text"
                 id="username"
                 name="username"
                 value={formData.username}
@@ -200,13 +204,26 @@ export default function SignupForm  () {
             <div className="form-group">
               <label htmlFor="storeName">Nombre de la tienda</label>
               <input
-                type="name"
+                type="text"
                 id="storeName"
                 name = "storeName"
                 value={formData.storeName}
                 onChange={handleChange}
                 required
                 placeholder="Ingresa el nombre de tu tienda"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="storeUrl"> URL de la tu tienda </label>
+              <input
+                type="url"
+                id="storeUrl"
+                name = "storeUrl"
+                value={formData.storeUrl}
+                onChange={handleChange}
+                required
+                placeholder="Ingresa el url de tu tienda"
               />
             </div>
           </div>
@@ -224,8 +241,8 @@ export default function SignupForm  () {
                 Acepto los términos y condiciones
               </label>
             </div>
-            <button type="submit" className="btn-create-account">
-              Crear cuenta
+            <button type="submit" className="btn-create-account" disabled={loading}>
+                {loading ? "Creando cuenta..." : "Crear cuenta"}
             </button>
           </form>
         </div>
