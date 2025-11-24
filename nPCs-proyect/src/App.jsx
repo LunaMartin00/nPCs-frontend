@@ -1,8 +1,15 @@
+// src/App.jsx
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Componentes
 import Header from "./components/Header.jsx";
-import Navigationbar from "./components/navbar.jsx"
+import Navigationbar from "./components/navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import ProductList from "./components/productList.jsx"; // Nuevo
+import SignUp from "./components/SignUp.jsx"; // Tu registro existente
+
+// Assets
 import logo from "./assets/Logo.svg";
 import "./styles/App.css";
 
@@ -14,16 +21,13 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  return (
-    <div>
-      <Header/>
-      <Navigationbar/>
+  // Contenido de la página de inicio
+  const HomeContent = () => (
+    <>
       {showAbout ? (
         <main className="hero about">
           <div className="hero-content">
-            <h1>
-              <img src={logo} alt="nPCs logo" className="hero-inline-logo" /> 
-            </h1>
+            <h1><img src={logo} alt="nPCs logo" className="hero-inline-logo" /></h1>
             <p>
               En nPCs somos una tienda dedicada a ofrecer componentes de alta calidad para
               construcciones de PC a medida. Nuestro objetivo es brindar asesoría personalizada,
@@ -43,8 +47,32 @@ export default function App() {
           </div>
         </main>
       )}
-      <Footer onShowAbout={handleShowAbout} />
-    </div>
+    </>
+  );
+
+  return (
+    <Router>
+      <div className="app-container">
+        <Header />
+        <Navigationbar />
+
+        <Routes>
+          {/* Ruta 1: Inicio */}
+          <Route path="/" element={<HomeContent />} />
+
+          {/* Ruta 2: Registro */}
+          <Route path="/register" element={<SignUp />} />
+
+          {/* Ruta 3: Comparador de Productos (Trivago) */}
+          <Route path="/explorar/:categoria" element={<ProductList />} />
+          
+          {/* Rutas extra */}
+          <Route path="/armar-pc" element={<div className="text-white text-center p-5">Proximamente</div>} />
+          <Route path="/builds" element={<div className="text-white text-center p-5">Proximamente</div>} />
+        </Routes>
+
+        <Footer onShowAbout={handleShowAbout} />
+      </div>
+    </Router>
   );
 }
-

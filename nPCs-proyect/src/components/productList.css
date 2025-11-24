@@ -1,0 +1,167 @@
+
+
+.product-list-container {
+    min-height: 80vh;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.category-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-title {
+    font-weight: 700;
+    color: #1E293B; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-highlight {
+    color: #4a9eff;
+    text-shadow: 0 0 15px rgba(74, 158, 255, 0.2); 
+}
+
+
+.product-card {
+    background-color: #1E293B !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+
+    display: flex;
+    flex-direction: column; 
+    
+    text-decoration: none; 
+    color: inherit;
+    cursor: pointer;
+    overflow: hidden; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    height: 100%; 
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    border-color: #4a9eff !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.card-img-wrapper {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    position: relative;
+    height: 200px; 
+    flex-shrink: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.product-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.08);
+}
+
+.store-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.badge-KPC { background-color: #FF9900; color: #000; }
+.badge-Kayfa_Store { background-color: #28a745; color: #fff; }
+.badge-AEON { background-color: #000; color: #fff; border: 1px solid #333; }
+.badge-Zona_Digital {background-color: #1a2941; color: #ffffff;}
+.badge-default { background-color: #4a9eff; color: #fff; }
+
+
+.card-body-custom {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-category {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+}
+
+.mt-auto {
+    margin-top: auto; 
+    width: 100%;
+}
+
+.price-tag {
+    color: #4a9eff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block; 
+}
+
+
+.btn-offer {
+    border: 1px solid #4a9eff;
+    color: #4a9eff;
+    background: transparent;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.product-card:hover .btn-offer {
+    background-color: #4a9eff;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.6);
+}
+
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+.spinner-custom {
+    width: 3rem;
+    height: 3rem;
+    color: #4a9eff;
+}

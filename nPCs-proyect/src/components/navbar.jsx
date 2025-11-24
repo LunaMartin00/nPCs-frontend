@@ -1,4 +1,6 @@
+// src/components/Navbar.jsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // IMPORTANTE
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   Collapse,
@@ -15,13 +17,14 @@ import {
   InputGroup,
 } from 'reactstrap';
 import './navbar.css';
+
+// Asegúrate de que tus iconos existan o comenta estas líneas si dan error
 import PC2Icon from '../assets/PC2.svg';
 import CpuIcon from '../assets/cpu.svg';
 import PCcomIcon from '../assets/PCcom.svg';
 
 function Navigationbar(args) {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -29,42 +32,44 @@ function Navigationbar(args) {
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="me-auto align-items-center" navbar>
+          
           <NavItem>
-            <NavLink href="/armar-pc" className="nav-link-custom">
+            {/* Usamos tag={Link} para navegación rápida */}
+            <NavLink tag={Link} to="/armar-pc" className="nav-link-custom">
               <img src={PC2Icon} alt="PC" className="nav-icon-svg" />
               Armar PC
             </NavLink>
           </NavItem>
+
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret className="nav-link-custom">
               <img src={CpuIcon} alt="CPU" className="nav-icon-svg" />
               Explorar Productos
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem href="/productos/procesadores">Procesadores</DropdownItem>
-              <DropdownItem href="/productos/placas-madre">Placas Madre</DropdownItem>
-              <DropdownItem href="/productos/tarjetas-graficas">Tarjetas Gráficas</DropdownItem>
-              <DropdownItem href="/productos/memorias">Memorias RAM</DropdownItem>
-              <DropdownItem href="/productos/almacenamiento">Almacenamiento</DropdownItem>
-              <DropdownItem href="/productos/fuentes">Fuentes de Poder</DropdownItem>
-              <DropdownItem href="/productos/gabinetes">Gabinetes</DropdownItem>
+              {/* Rutas corregidas para coincidir con el App.js */}
+              <DropdownItem tag={Link} to="/explorar/procesadores">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/placas-madre">Placas Madre</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/tarjetas-graficas">Tarjetas Gráficas</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/memorias-ram">Memorias RAM</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/almacenamiento">Almacenamiento</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/fuentes-poder">Fuentes de Poder</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/gabinetes">Gabinetes</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem href="/productos/todos">Ver Todos</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/todos">Ver Todos</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
+
           <NavItem>
-            <NavLink href="/builds" className="nav-link-custom">
+            <NavLink tag={Link} to="/builds" className="nav-link-custom">
               <img src={PCcomIcon} alt="Builds" className="nav-icon-svg" />
               Builds de Usuarios
             </NavLink>
           </NavItem>
         </Nav>
+
         <InputGroup className="search-bar">
-          <Input
-            type="search"
-            placeholder="Buscar productos..."
-            className="search-input"
-          />
+          <Input type="search" placeholder="Buscar productos..." className="search-input" />
         </InputGroup>
       </Collapse>
     </Navbar>
