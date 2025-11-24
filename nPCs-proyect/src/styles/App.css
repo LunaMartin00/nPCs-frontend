@@ -4,6 +4,7 @@
 * {
   box-sizing: border-box;
 }
+
 html,
 body,
 #root {
@@ -181,27 +182,32 @@ body {
   .hero h1 {
     font-size: 3.5rem;
   }
+
   .hero h2 {
     font-size: 1.5rem;
   }
+
   .hero p {
     font-size: 1.075rem;
   }
+
   .hero {
     padding: 6rem 2rem;
   }
+
   .hero-content {
     padding: 3rem;
   }
+
   .hero-inline-logo {
     width: 180px;
   }
 }
 
 .boton {
-  display: block;
-  margin: 1.5rem auto 0;
-  padding: 0.6rem 1rem;
+  display: inline-block;
+  margin: 1.1rem auto 0;
+  padding: 0.5rem 0.9rem;
   background: var(--blue);
   color: #fff;
   border: none;
@@ -221,7 +227,7 @@ body {
 
 @media (min-width: 768px) {
   .boton {
-    padding: 0.8rem 1.25rem;
+    padding: 0.65rem 1rem;
     font-size: 1.05rem;
   }
 }
