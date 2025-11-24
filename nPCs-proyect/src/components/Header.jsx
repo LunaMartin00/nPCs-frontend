@@ -13,7 +13,7 @@ export default function Header() {
         </button>
 
         <nav className="header-nav">
-          <button className="header-link" onClick={() => (window.location.href = "/login")}>
+          <button className="header-link" onClick={() => (window.location.href = "/signin")}>
             Iniciar Sesión
           </button>
           <span className="header-divider">|</span>

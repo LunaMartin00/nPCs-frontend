@@ -8,7 +8,8 @@ import Footer from "./components/Footer.jsx";
 import ProductList from "./components/productList.jsx";
 import SignUp from "./components/SignUp.jsx";           
 import SignUpClient from "./components/SignUpClient.jsx"; 
-import SignUpShop from "./components/SignUpShop.jsx";     
+import SignUpShop from "./components/SignUpShop.jsx";    
+import SignIn from "./components/SignIn.jsx"; 
 
 import logo from "./assets/Logo.svg";
 import "./styles/App.css";
@@ -67,6 +68,7 @@ export default function App() {
 
           {/* 2. Rutas de Registro */}
           <Route path="/register" element={<SignUp />} /> 
+          <Route path="/signin" element={<SignIn />} />
           <Route path="/signup/cliente" element={<SignUpClient />} /> 
           <Route path="/signup/tienda" element={<SignUpShop />} />    
 

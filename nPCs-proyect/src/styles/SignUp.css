@@ -95,3 +95,13 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
+
+.no-account-link {
+  padding-bottom: 20px;
+  color: var(--blue)
+}
+
+.no-account-link:hover {
+
+  color: var(--blue-hover)
+}
