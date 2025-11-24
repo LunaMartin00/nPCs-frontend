@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -6,9 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Navigationbar from "./components/navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import ProductList from "./components/productList.jsx"; 
-import SignUp from "./components/SignUp.jsx"; 
-
+import ProductList from "./components/productList.jsx";
+import SignUp from "./components/SignUp.jsx";           
+import SignUpClient from "./components/SignUpClient.jsx"; 
+import SignUpShop from "./components/SignUpShop.jsx";     
 
 import logo from "./assets/Logo.svg";
 import "./styles/App.css";
@@ -27,7 +27,9 @@ export default function App() {
       {showAbout ? (
         <main className="hero about">
           <div className="hero-content">
-            <h1><img src={logo} alt="nPCs logo" className="hero-inline-logo" /></h1>
+            <h1>
+              <img src={logo} alt="nPCs logo" className="hero-inline-logo" />
+            </h1>
             <p>
               En nPCs somos una tienda dedicada a ofrecer componentes de alta calidad para
               construcciones de PC a medida. Nuestro objetivo es brindar asesoría personalizada,
@@ -53,25 +55,33 @@ export default function App() {
   return (
     <Router>
       <div className="app-container">
+        
+        
         <Header />
         <Navigationbar />
 
+        
         <Routes>
-          {/* Ruta 1: Inicio */}
+          {/* 1. Ruta de Inicio */}
           <Route path="/" element={<HomeContent />} />
 
-          {/* Ruta 2: Registro */}
-          <Route path="/register" element={<SignUp />} />
+          {/* 2. Rutas de Registro */}
+          <Route path="/register" element={<SignUp />} /> 
+          <Route path="/signup/cliente" element={<SignUpClient />} /> 
+          <Route path="/signup/tienda" element={<SignUpShop />} />    
 
-          {/* Ruta 3: Comparador de Productos */}
+          {/* 3. Rutas del Comparador de Productos */}
           <Route path="/explorar/:categoria" element={<ProductList />} />
           
-          {/* Rutas extra */}
-          <Route path="/armar-pc" element={<div className="text-white text-center p-5">Proximamente</div>} />
-          <Route path="/builds" element={<div className="text-white text-center p-5">Proximamente</div>} />
+          {/* 4. Rutas Extra (Placeholders o Redirecciones) */}
+          <Route path="/productos/todos" element={<ProductList />} />
+          <Route path="/armar-pc" element={<div style={{padding:"5rem", textAlign:"center", color:"white"}}><h2>Próximamente: Armar PC</h2></div>} />
+          <Route path="/builds" element={<div style={{padding:"5rem", textAlign:"center", color:"white"}}><h2>Próximamente: Builds de Usuarios</h2></div>} />
+          
         </Routes>
 
         <Footer onShowAbout={handleShowAbout} />
+      
       </div>
     </Router>
   );
