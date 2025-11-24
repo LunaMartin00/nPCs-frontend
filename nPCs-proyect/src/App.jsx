@@ -1,15 +1,15 @@
-// src/App.jsx
+
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Componentes
+
 import Header from "./components/Header.jsx";
 import Navigationbar from "./components/navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import ProductList from "./components/productList.jsx"; // Nuevo
-import SignUp from "./components/SignUp.jsx"; // Tu registro existente
+import ProductList from "./components/productList.jsx"; 
+import SignUp from "./components/SignUp.jsx"; 
 
-// Assets
+
 import logo from "./assets/Logo.svg";
 import "./styles/App.css";
 
@@ -21,7 +21,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Contenido de la página de inicio
+
   const HomeContent = () => (
     <>
       {showAbout ? (
@@ -63,7 +63,7 @@ export default function App() {
           {/* Ruta 2: Registro */}
           <Route path="/register" element={<SignUp />} />
 
-          {/* Ruta 3: Comparador de Productos (Trivago) */}
+          {/* Ruta 3: Comparador de Productos */}
           <Route path="/explorar/:categoria" element={<ProductList />} />
           
           {/* Rutas extra */}
