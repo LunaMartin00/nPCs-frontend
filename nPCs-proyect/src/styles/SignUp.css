@@ -23,12 +23,12 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 50px;
-  animation: slideIn 3s ease-in-out;
+  animation: slideIn 0.7s ease-in-out;
 }
 
 @keyframes slideIn {
     from{
-        transform: translateY(-90%);
+        transform: translateY(10%);
         opacity: 0;
     }
     to {

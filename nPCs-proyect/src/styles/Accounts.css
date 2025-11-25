@@ -21,7 +21,7 @@ body {
 
 .row1{
     margin-top: 100px;
-    animation: slideIn 3s ease-in-out;
+    animation: slideIn 0.7s ease-in-out;
     margin-bottom: 100px;
     justify-content: center;
 
@@ -101,7 +101,7 @@ h1 {
 
 @keyframes slideIn {
     from{
-        transform: translateY(-90%);
+        transform: translateY(10%);
         opacity: 0;
     }
     to {

@@ -18,7 +18,6 @@ import {
 } from 'reactstrap';
 import './navbar.css';
 
-// Asegúrate de que tus iconos existan o comenta estas líneas si dan error
 import PC2Icon from '../assets/PC2.svg';
 import CpuIcon from '../assets/cpu.svg';
 import PCcomIcon from '../assets/PCcom.svg';
@@ -49,11 +48,11 @@ function Navigationbar(args) {
             <DropdownMenu>
               {/* Rutas corregidas para coincidir con el App.js */}
               <DropdownItem tag={Link} to="/explorar/procesadores">Procesadores</DropdownItem>
-              <DropdownItem tag={Link} to="/explorar/placas-madre">Placas Madre</DropdownItem>
-              <DropdownItem tag={Link} to="/explorar/tarjetas-graficas">Tarjetas Gráficas</DropdownItem>
-              <DropdownItem tag={Link} to="/explorar/memorias-ram">Memorias RAM</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/motherboards">Motherboards</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/tarjetas de video">Tarjetas de video</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/memorias ram">Memorias RAM</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/almacenamiento">Almacenamiento</DropdownItem>
-              <DropdownItem tag={Link} to="/explorar/fuentes-poder">Fuentes de Poder</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/fuentes de poder">Fuentes de Poder</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/gabinetes">Gabinetes</DropdownItem>
               <DropdownItem divider />
               <DropdownItem tag={Link} to="/explorar/todos">Ver Todos</DropdownItem>
