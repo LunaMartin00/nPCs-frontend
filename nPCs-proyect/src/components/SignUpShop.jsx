@@ -4,7 +4,7 @@ import '../styles/SignUp.css';
 import axios from 'axios'; 
 import { useNavigate } from 'react-router-dom';
 
-export default function SignupForm  () {
+export default function SignupForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstNames: '',
@@ -27,7 +27,7 @@ export default function SignupForm  () {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
-    // Limpiar error cuando el usuario empiece a escribir
+    
     if (error) setError('');
   };
 
@@ -36,7 +36,7 @@ export default function SignupForm  () {
     setLoading(true);
     setError('');
 
-    // Validaciones frontend
+
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
       setLoading(false);
@@ -68,14 +68,12 @@ export default function SignupForm  () {
 
       const data = response.data;
 
-      
-
       console.log('Usuario creado:', data);
       
       alert("Usuario creado con éxito!");
 
        setTimeout(() => {
-        navigate('/');
+        navigate('/homepage-tienda');
       }, 1000);
 
       setFormData({
@@ -93,16 +91,25 @@ export default function SignupForm  () {
     } catch (err) {
       console.error('Error al registrar usuario:', err);
       
-      // Manejar diferentes tipos de errores
+      
       if (err.response) {
-        // Error del servidor (400, 409, 500, etc.)
-        setError(err.response.data.message || 'Error al registrar usuario');
+       
+        const errorMessage = err.response.data.message;
+        
+        
+        if (err.response.status === 409) {
+          setError('El correo electrónico o nombre de usuario ya está registrado. Por favor, utiliza otros datos.');
+        } else if (err.response.status === 400) {
+          setError(errorMessage || 'Hay campos incompletos en la información');
+        } else {
+          setError(errorMessage || 'Error al registrar usuario');
+        }
       } else if (err.request) {
-        // Error de conexión
-        setError('No se pudo conectar con el servidor');
+        
+        setError('No se pudo conectar con el servidor. Verifica tu conexión a internet.');
       } else {
-        // Otros errores
-        setError('Error inesperado');
+        
+        setError('Error inesperado al procesar la solicitud');
       }
     } finally {
       setLoading(false);
@@ -114,11 +121,16 @@ export default function SignupForm  () {
         <div className="signup-card">
           <h1>Regístrar tienda</h1>
       
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className="signup-form">
           <div className= "form-row">
             <div className="form-group">
-              <label htmlFor="firstNames"> Nombres </label>
+              <label htmlFor="firstNames">Nombres</label>
               <input
                 type="text"
                 id="firstNames"
@@ -131,7 +143,7 @@ export default function SignupForm  () {
             </div>
             
             <div className="form-group">
-              <label htmlFor="lastNames"> Apellidos </label>
+              <label htmlFor="lastNames">Apellidos</label>
               <input
                 type="text"
                 id="lastNames"
@@ -146,7 +158,7 @@ export default function SignupForm  () {
 
           <div className= "form-row">
             <div className="form-group">
-              <label htmlFor="username"> Nombre de usuario </label>
+              <label htmlFor="username">Nombre de usuario</label>
               <input
                 type="text"
                 id="username"
@@ -206,7 +218,7 @@ export default function SignupForm  () {
               <input
                 type="text"
                 id="storeName"
-                name = "storeName"
+                name="storeName"
                 value={formData.storeName}
                 onChange={handleChange}
                 required
@@ -215,11 +227,11 @@ export default function SignupForm  () {
             </div>
 
             <div className="form-group">
-              <label htmlFor="storeUrl"> URL de la tu tienda </label>
+              <label htmlFor="storeUrl">URL de tu tienda</label>
               <input
                 type="url"
                 id="storeUrl"
-                name = "storeUrl"
+                name="storeUrl"
                 value={formData.storeUrl}
                 onChange={handleChange}
                 required

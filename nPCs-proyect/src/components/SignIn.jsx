@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/SignUp.css';
+import axios from 'axios';
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -27,16 +28,45 @@ export default function SignIn() {
     setError('');
 
     try {
-      
-      console.log('Login attempt:', formData);
-      
 
-    setTimeout(() => {
-        navigate('/');
-      }, 1000);
+
+      const userData = {
+            email: formData.email,
+            password: formData.password
+      };
+
+      const response = await axios.post(
+          'http://localhost:5000/signIn',
+          userData
+      );
+
+      const data = response.data;
+
+      console.log('Login successful:', data);
+      
+      localStorage.setItem('token', data._jwt);
+      localStorage.setItem('userRole', data.role);
+      localStorage.setItem('userEmail', formData.email);
+      
+      if (data.role === 'encargado de tienda') {
+        navigate('/homepage-tienda'); 
+      } else if (data.role === 'cliente') {
+        navigate('/homepage-cliente'); 
+      } else {
+        navigate('/'); 
+      }
 
     } catch (err) {
-      setError('Error al iniciar sesión');
+
+       if (err.response && err.response.status === 404) {
+        setError('Usuario no encontrado. Verifica tu email.');
+      } else if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else if (err.message) {
+        setError(err.message);
+      } else {
+        setError('Error al iniciar sesión. Intenta nuevamente.');
+      }
     } finally {
       setLoading(false);
     }
