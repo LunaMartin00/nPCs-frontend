@@ -43,9 +43,9 @@ export default function Footer({ onShowAbout }) {
                             <br/>
                             <ul>
                                 <a href="#"> <i className = "fab fa-facebook-f"></i></a>
-                                <a href="#"> <i className = "fab fa-instagram"></i></a>
-                                <a href="#"> <i className = "fab fa-twitter"></i></a>
-                                <a href="#"> <i className = "fab fa-linkedin"></i></a>
+                                <a href="https://www.instagram.com/npcsoficial/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram"> <i className = "fab fa-instagram" aria-hidden="true"></i></a>
+                                <a href="https://x.com/nPcsoficial" target="_blank" rel="noopener noreferrer" title="Twitter" aria-label="Twitter"> <i className = "fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://www.linkedin.com/in/npcs-oficial/" target="_blank" rel="noopener noreferrer" title="Linkedin" aria-label="Linkedin"> <i className = "fab fa-linkedin" aria-hidden="true"></i></a>
                             </ul>
                         </div>      
                 </div>
