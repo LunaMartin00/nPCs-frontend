@@ -85,9 +85,9 @@ function ClientNavbar(args) {
               Explorar Productos
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem tag={Link} to="/tienda/explorar/procesadores">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/tienda/explorar/cpu">Procesadores</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/placas-madre">Motherboards</DropdownItem>
-              <DropdownItem tag={Link} to="/tienda/explorar/tarjetas-graficas">Tarjetas de video</DropdownItem>
+              <DropdownItem tag={Link} to="/tienda/explorar/gpu">Tarjetas de video</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/memorias-ram">Memorias RAM</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/almacenamiento">Almacenamiento</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/fuentes-poder">Fuentes de Poder</DropdownItem>
