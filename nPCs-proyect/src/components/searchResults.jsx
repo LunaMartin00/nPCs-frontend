@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import './SearchResults.css';
+import '../styles/searchResults.css';
 
 const SearchResults = () => {
     const [products, setProducts] = useState([]);

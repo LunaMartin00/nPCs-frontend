@@ -78,14 +78,19 @@ function Navigationbar(args) {
               Armar PC
             </NavLink>
           </NavItem>
-
+          <NavItem>
+          <NavLink tag={Link} to="/agregar-producto" className="nav-link-custom">
+              <span className="nav-icon">➕</span>
+              Agregar Producto
+              </NavLink>
+          </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret className="nav-link-custom">
               <img src={CpuIcon} alt="CPU" className="nav-icon-svg" />
               Explorar Productos
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem tag={Link} to="/explorar/procesadores">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/CPU">Procesadores</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/placas-madre">Motherboards</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/tarjetas-graficas">Tarjetas de video</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/memorias-ram">Memorias RAM</DropdownItem>
