@@ -61,7 +61,7 @@ function ClientNavbar(args) {
   };
 
   const handleSuggestionClick = (productName) => {
-    navigate(`/search?q=${encodeURIComponent(productName)}`);
+    navigate(`/cliente/search?q=${encodeURIComponent(productName)}`);
     setSearchTerm('');
     setSuggestions([]);
   };

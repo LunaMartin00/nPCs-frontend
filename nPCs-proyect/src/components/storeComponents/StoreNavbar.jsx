@@ -34,7 +34,7 @@ function ClientNavbar(args) {
   const handleSearch = async (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+      navigate(`/tienda/search?q=${encodeURIComponent(searchTerm)}`);
       setSearchTerm('');
       setSuggestions([]);
     }
