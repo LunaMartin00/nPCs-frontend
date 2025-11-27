@@ -4,7 +4,7 @@ import logo from "../../assets/Logo.svg";
 import "../../styles/Header.css";
 
 export default function ClientHeader({onLogout}) {
-  const goHome = () => (window.location.href = "/homepage-tienda");
+  const goHome = () => (window.location.href = "/tienda/homepage-tienda");
 
   return (
       <header className="header-bar">

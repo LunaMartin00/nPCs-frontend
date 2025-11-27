@@ -7,11 +7,11 @@ import Footer from "./StoreFooter.jsx";
 import ProductList from "../productList.jsx";
 import ArmarPC from "../ArmarPC.jsx";
 import UserBuilds from "../UserBuilds.jsx";
+import PoliticasPrivacidad from "../PoliticasPrivacidad.jsx";
+import TerminosCondiciones from "../TerminosCondiciones.jsx";
 
 import logo from "../../assets/Logo.svg";
 import "../../styles/App.css";
-import PoliticasPrivacidad from "../PoliticasPrivacidad.jsx";
-import TerminosCondiciones from "../TerminosCondiciones.jsx";
 
 export default function StoreApp() {
   const [showAbout, setShowAbout] = useState(false);
@@ -49,9 +49,9 @@ export default function StoreApp() {
       ) : (
         <main className="hero">
           <div className="hero-content">
-            <h1>Bienvenido Cliente a <img src={logo} alt="nPCs logo" className="hero-inline-logo" /></h1>
-            <h2>Tu área personal de componentes de PC.</h2>
-            <p>Accede a tus builds guardados, favoritos y recomendaciones personalizadas.</p>
+            <h1>Bienvenido Tienda a <img src={logo} alt="nPCs logo" className="hero-inline-logo" /></h1>
+            <h2>Tu área de gestión de productos.</h2>
+            <p>Gestiona tu inventario, pedidos y builds de clientes.</p>
             <Link to="/tienda/armar-pc" className="boton">Montar PC</Link>
           </div>
         </main>
@@ -65,19 +65,14 @@ export default function StoreApp() {
       <Navigationbar isLoggedIn={true} userRole="encargado de tienda" onLogout={handleLogout} />
 
       <Routes>
-        {/* Ruta de Inicio para tienda */}
-        <Route path="/homepage-tienda" element={<HomeContent />} />
-
-        {/* Rutas específicas para tiendas */}
-        <Route path="/tienda/explorar/:categoria" element={<ProductList />} />
-        <Route path="/tienda/productos/todos" element={<ProductList />} />
-        <Route path="/tienda/armar-pc" element={<ArmarPC />} />
-        <Route path="/tienda/builds" element={<UserBuilds/>} />
-        <Route path="/tienda/armar-pc" element= {<ArmarPC/>} />
-        <Route path="/tienda/politicas-de-privacidad" element= {<PoliticasPrivacidad/>} />
-        <Route path="/tienda/terminos-y-condiciones" element= {<TerminosCondiciones/>} />
-
-
+        <Route path="homepage-tienda" element={<HomeContent />} />
+        <Route path="explorar/:categoria" element={<ProductList />} />
+        <Route path="productos/todos" element={<ProductList />} />
+        <Route path="armar-pc" element={<ArmarPC />} />
+        <Route path="builds" element={<UserBuilds/>} />
+        <Route path="politicas-de-privacidad" element= {<PoliticasPrivacidad/>} />
+        <Route path="terminos-y-condiciones" element= {<TerminosCondiciones/>} />
+        
         <Route path="*" element={<HomeContent />} />
       </Routes>
 

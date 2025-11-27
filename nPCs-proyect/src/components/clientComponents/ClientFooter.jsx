@@ -26,27 +26,27 @@ export default function Footer({ onShowAbout }) {
                         <h4>Compañia</h4>
                         <ul>
                             <li><a href="#" onClick={(e) => { e.preventDefault(); if (onShowAbout) onShowAbout(); }}>Sobre nosotros</a></li>
-                            <li><Link to="/armar-pc" onClick={handleScrollToTop}>Productos</Link></li>
-                            <li><Link to="/politicas-de-privacidad" onClick={handleScrollToTop}>Políticas de privacidad</Link></li>
-                            <li><Link to="/terminos-y-condiciones" onClick={handleScrollToTop}>Términos y condiciones</Link></li>
+                            <li><Link to="/cliente/armar-pc" onClick={handleScrollToTop}>Productos</Link></li>
+                            <li><Link to="/cliente/politicas-de-privacidad" onClick={handleScrollToTop}>Políticas de privacidad</Link></li>
+                            <li><Link to="/cliente/terminos-y-condiciones" onClick={handleScrollToTop}>Términos y condiciones</Link></li>
                         </ul>
                     </div>
                     
                     <div className='footer_section'>
                         <h4>Nuestros productos</h4>
                         <ul>
-                            <li><Link to="/armar-pc" onClick={handleScrollToTop}>CPU</Link></li>
-                            <li><Link to="/armar-pc" onClick={handleScrollToTop}>GPU</Link></li>
-                            <li><Link to="/armar-pc" onClick={handleScrollToTop}>RAM</Link></li>
-                            <li><Link to="/armar-pc" onClick={handleScrollToTop}>Almacenamiento</Link></li>
+                            <li><Link to="/cliente/armar-pc" onClick={handleScrollToTop}>CPU</Link></li>
+                            <li><Link to="/cliente/armar-pc" onClick={handleScrollToTop}>GPU</Link></li>
+                            <li><Link to="/cliente/armar-pc" onClick={handleScrollToTop}>RAM</Link></li>
+                            <li><Link to="/cliente/armar-pc" onClick={handleScrollToTop}>Almacenamiento</Link></li>
                         </ul>
                     </div>
 
                     <div className='footer_section'>
                         <h4>Cuenta</h4>
                         <ul>
-                                    <li><Link to="/homepage-cliente" onClick={handleScrollToTop}>Mi perfil</Link></li>
-                                    <li><Link to="/historial-compras" onClick={handleScrollToTop}>Mis compras</Link></li>
+                                    <li><Link to="/cliente/homepage-cliente" onClick={handleScrollToTop}>Mi perfil</Link></li>
+                                    <li><Link to="/cliente/historial-compras" onClick={handleScrollToTop}>Mis compras</Link></li>
                                     <li><a href="#" onClick={(e) => { e.preventDefault(); handleLogout(); }}>Cerrar sesión</a></li>
                         </ul>
                     </div>

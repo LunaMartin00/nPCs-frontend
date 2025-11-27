@@ -94,11 +94,11 @@ const ClientAppWrapper = ({ onLogout }) => {
   return (
     <Routes>
       <Route 
-        path="/homepage-cliente" 
+        path="/cliente/*" 
         element={<ClientApp onLogout={onLogout} />} 
       />
       {/* Redirigir cualquier ruta desconocida al homepage del cliente */}
-      <Route path="*" element={<Navigate to="/homepage-cliente" />} />
+      <Route path="*" element={<Navigate to="/cliente/homepage-cliente" />} />
     </Routes>
   );
 };
@@ -108,23 +108,21 @@ const StoreAppWrapper = ({ onLogout }) => {
   return (
     <Routes>
       <Route 
-        path="/homepage-tienda" 
+        path="/tienda/*" 
         element={<ShopApp onLogout={onLogout} />} 
       />
       {/* Redirigir cualquier ruta desconocida al homepage de la tienda */}
-      <Route path="*" element={<Navigate to="/homepage-tienda" />} />
+      <Route path="*" element={<Navigate to="/tienda/homepage-tienda" />} />
     </Routes>
   );
 };
 
-// Componente principal que decide qué aplicación mostrar según el rol
 const PrivateApp = ({ userRole, onLogout }) => {
   if (userRole === 'cliente') {
     return <ClientAppWrapper onLogout={onLogout} />;
   } else if (userRole === 'encargado de tienda') {
     return <StoreAppWrapper onLogout={onLogout} />;
   } else {
-    // Rol no reconocido, hacer logout
     onLogout();
     return null;
   }
@@ -141,8 +139,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Verificar autenticación al cargar la app
-  useEffect(() => {
+    useEffect(() => {
     const token = localStorage.getItem('token');
     const storedUserRole = localStorage.getItem('userRole');
     
@@ -157,7 +154,7 @@ export default function App() {
   const handleLogin = (role, email, token) => {
     setIsLoggedIn(true);
     setUserRole(role);
-    // Guardar en localStorage
+
     localStorage.setItem('userRole', role);
     localStorage.setItem('userEmail', email);
     localStorage.setItem('token', token);

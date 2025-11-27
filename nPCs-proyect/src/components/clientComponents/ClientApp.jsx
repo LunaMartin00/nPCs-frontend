@@ -7,6 +7,8 @@ import Footer from "./ClientFooter.jsx";
 import ProductList from "../productList.jsx";
 import ArmarPC from "../ArmarPC.jsx";
 import UserBuilds from "../UserBuilds.jsx";
+import PoliticasPrivacidad from "../PoliticasPrivacidad.jsx";
+import TerminosCondiciones from "../TerminosCondiciones.jsx";
 
 import logo from "../../assets/Logo.svg";
 import "../../styles/App.css";
@@ -25,7 +27,7 @@ export default function ClientApp() {
     localStorage.removeItem('userRole');
     localStorage.removeItem('userEmail');
     navigate('/');
-    window.location.reload(); // Recargar para resetear el estado
+    window.location.reload();
   };
 
   const HomeContent = () => (
@@ -63,16 +65,14 @@ export default function ClientApp() {
       <Navigationbar isLoggedIn={true} userRole="cliente" onLogout={handleLogout} />
 
       <Routes>
-        {/* Ruta de Inicio para cliente */}
-        <Route path="/homepage-cliente" element={<HomeContent />} />
-
-        {/* Rutas específicas para cliente */}
-        <Route path="/cliente/explorar/:categoria" element={<ProductList />} />
-        <Route path="/cliente/productos/todos" element={<ProductList />} />
-        <Route path="/cliente/armar-pc" element={<ArmarPC />} />
-        <Route path="/cliente/builds" element={<UserBuilds/>} 
-        />
-
+        <Route path="homepage-cliente" element={<HomeContent />} />
+        <Route path="explorar/:categoria" element={<ProductList />} />
+        <Route path="productos/todos" element={<ProductList />} />
+        <Route path="armar-pc" element={<ArmarPC />} />
+        <Route path="builds" element={<UserBuilds/>}/>
+        <Route path="politicas-de-privacidad" element= {<PoliticasPrivacidad/>} />
+        <Route path="terminos-y-condiciones" element= {<TerminosCondiciones/>} />
+        
         <Route path="*" element={<HomeContent />} />
       </Routes>
 

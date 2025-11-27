@@ -45,8 +45,8 @@ export default function Footer({ onShowAbout }) {
                     <div className='footer_section'>
                         <h4>Cuenta</h4>
                         <ul>
-                                    <li><Link to="/homepage-cliente" onClick={handleScrollToTop}>Mi perfil</Link></li>
-                                    <li><Link to="/historial-productos" onClick={handleScrollToTop}>Mis productos</Link></li>
+                                    <li><Link to="/tienda/homepage-tienda" onClick={handleScrollToTop}>Mi perfil</Link></li>
+                                    <li><Link to="/tienda/historial-productos" onClick={handleScrollToTop}>Mis productos</Link></li>
                                     <li><a href="#" onClick={(e) => { e.preventDefault(); handleLogout(); }}>Cerrar sesión</a></li>
                         </ul>
                     </div>
