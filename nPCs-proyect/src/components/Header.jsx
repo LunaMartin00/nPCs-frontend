@@ -3,7 +3,7 @@ import logo from "../assets/Logo.svg";
 
 import "../styles/Header.css";
 
-export default function Header({ isLoggedIn, userRole, onLogout }) {
+export default function Header({}) {
   const goHome = () => (window.location.href = "/");
 
   return (
@@ -15,16 +15,7 @@ export default function Header({ isLoggedIn, userRole, onLogout }) {
 
     
       <nav className="header-nav">
-        {isLoggedIn ? (
-          
-          <>
-            <button className="header-link" onClick={onLogout}>
-              Cerrar Sesión
-            </button>
-          </>
-        ) : (
-          
-          <>
+        
             <button className="header-link" onClick={() => (window.location.href = "/signIn")}>
               Iniciar Sesión
             </button>
@@ -32,8 +23,6 @@ export default function Header({ isLoggedIn, userRole, onLogout }) {
             <button className="header-link" onClick={() => (window.location.href = "/register")}>
               Registrarse
             </button>
-          </>
-        )}
       </nav>
     </header>
     );

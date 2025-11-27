@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 import ClientHeader from "./ClientHeader.jsx";
-import Navigationbar from "../navbar.jsx";
-import Footer from "../Footer.jsx";
+import Navigationbar from "./ClientNavbar.jsx";
+import Footer from "./ClientFooter.jsx";
 import ProductList from "../productList.jsx";
 import ArmarPC from "../ArmarPC.jsx";
 import UserBuilds from "../UserBuilds.jsx";

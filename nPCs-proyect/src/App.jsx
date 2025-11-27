@@ -79,6 +79,8 @@ const PublicApp = ({ onShowAbout, showAbout, onLogin, onRegister }) => {
         <Route path="/politicas-de-privacidad" element={<PoliticasPrivacidad />} />
         <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/builds" element={<UserBuilds />} 
+      />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       
@@ -95,10 +97,6 @@ const ClientAppWrapper = ({ onLogout }) => {
         path="/homepage-cliente" 
         element={<ClientApp onLogout={onLogout} />} 
       />
-      <Route 
-        path="/builds" 
-        element={<UserBuilds />} 
-      />
       {/* Redirigir cualquier ruta desconocida al homepage del cliente */}
       <Route path="*" element={<Navigate to="/homepage-cliente" />} />
     </Routes>
@@ -106,7 +104,7 @@ const ClientAppWrapper = ({ onLogout }) => {
 };
 
 // Componente para la aplicación tienda
-const ShopAppWrapper = ({ onLogout }) => {
+const StoreAppWrapper = ({ onLogout }) => {
   return (
     <Routes>
       <Route 
@@ -123,8 +121,8 @@ const ShopAppWrapper = ({ onLogout }) => {
 const PrivateApp = ({ userRole, onLogout }) => {
   if (userRole === 'cliente') {
     return <ClientAppWrapper onLogout={onLogout} />;
-  } else if (userRole === 'tienda') {
-    return <ShopAppWrapper onLogout={onLogout} />;
+  } else if (userRole === 'encargado de tienda') {
+    return <StoreAppWrapper onLogout={onLogout} />;
   } else {
     // Rol no reconocido, hacer logout
     onLogout();
