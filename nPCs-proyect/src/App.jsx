@@ -11,7 +11,7 @@ import SignUpClient from "./components/SignUpClient.jsx";
 import SignUpShop from "./components/SignUpShop.jsx";
 import ArmarPC from "./components/ArmarPC.jsx";
 import SignIn from "./components/SignIn.jsx"; 
-
+import SearchResults from "./components/searchResults.jsx";
 
 import logo from "./assets/Logo.svg";
 import "./styles/App.css";
@@ -81,7 +81,7 @@ export default function App() {
           <Route path="/productos/todos" element={<ProductList />} />
           <Route path="/armar-pc" element={<ArmarPC />} />
           <Route path="/builds" element={<div style={{ padding: "5rem", textAlign: "center", color: "white" }}><h2>Próximamente: Builds de Usuarios</h2></div>} />
-
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
 
         <Footer onShowAbout={handleShowAbout} />
