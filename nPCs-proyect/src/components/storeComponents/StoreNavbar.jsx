@@ -22,6 +22,7 @@ import '../../styles/navbar.css';
 import PC2Icon from '../../assets/PC2.svg';
 import CpuIcon from '../../assets/cpu.svg';
 import PCcomIcon from '../../assets/PCcom.svg';
+import AddProductForm from '../addProducts';
 
 function ClientNavbar(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ function ClientNavbar(args) {
   const handleSearch = async (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+      navigate(`/tienda/search?q=${encodeURIComponent(searchTerm)}`);
       setSearchTerm('');
       setSuggestions([]);
     }
@@ -85,9 +86,9 @@ function ClientNavbar(args) {
               Explorar Productos
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem tag={Link} to="/tienda/explorar/procesadores">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/tienda/explorar/cpu">Procesadores</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/placas-madre">Motherboards</DropdownItem>
-              <DropdownItem tag={Link} to="/tienda/explorar/tarjetas-graficas">Tarjetas de video</DropdownItem>
+              <DropdownItem tag={Link} to="/tienda/explorar/gpu">Tarjetas de video</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/memorias-ram">Memorias RAM</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/almacenamiento">Almacenamiento</DropdownItem>
               <DropdownItem tag={Link} to="/tienda/explorar/fuentes-poder">Fuentes de Poder</DropdownItem>
@@ -103,6 +104,14 @@ function ClientNavbar(args) {
               Builds de Usuarios
             </NavLink>
           </NavItem>
+
+          <NavItem>
+            <NavLink tag={Link} to="/tienda/agregar-producto" className="nav-link-custom">
+              <span className="nav-icon">➕</span>
+              Agregar Producto
+            </NavLink>
+          </NavItem>
+
         </Nav>
 
         <div className="search-container position-relative">

@@ -16,6 +16,7 @@ import PoliticasPrivacidad from "./components/PoliticasPrivacidad.jsx";
 import TerminosCondiciones from "./components/TerminosCondiciones.jsx";
 import SearchResults from "./components/searchResults.jsx";
 import UserBuilds from "./components/UserBuilds.jsx";
+import AddProductForm from "./components/addProducts.jsx";
 
 import logo from "./assets/Logo.svg";
 import "./styles/App.css";
@@ -80,6 +81,7 @@ const PublicApp = ({ onShowAbout, showAbout, onLogin, onRegister }) => {
         <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/builds" element={<UserBuilds />} 
+        
       />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

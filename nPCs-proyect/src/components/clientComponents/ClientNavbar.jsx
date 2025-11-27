@@ -61,7 +61,7 @@ function ClientNavbar(args) {
   };
 
   const handleSuggestionClick = (productName) => {
-    navigate(`/search?q=${encodeURIComponent(productName)}`);
+    navigate(`/cliente/search?q=${encodeURIComponent(productName)}`);
     setSearchTerm('');
     setSuggestions([]);
   };
@@ -85,9 +85,9 @@ function ClientNavbar(args) {
               Explorar Productos
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem tag={Link} to="/cliente/explorar/procesadores">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/cliente/explorar/cpu">Procesadores</DropdownItem>
               <DropdownItem tag={Link} to="/cliente/explorar/placas-madre">Motherboards</DropdownItem>
-              <DropdownItem tag={Link} to="/cliente/explorar/tarjetas-graficas">Tarjetas de video</DropdownItem>
+              <DropdownItem tag={Link} to="/cliente/explorar/gpu">Tarjetas de video</DropdownItem>
               <DropdownItem tag={Link} to="/cliente/explorar/memorias-ram">Memorias RAM</DropdownItem>
               <DropdownItem tag={Link} to="/cliente/explorar/almacenamiento">Almacenamiento</DropdownItem>
               <DropdownItem tag={Link} to="/cliente/explorar/fuentes-poder">Fuentes de Poder</DropdownItem>
