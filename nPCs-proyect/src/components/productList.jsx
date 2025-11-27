@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './ProductList.css'; 
+import '../styles/ProductList.css'; 
 
 const ProductList = () => {
   const { categoria } = useParams();

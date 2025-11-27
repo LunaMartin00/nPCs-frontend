@@ -1,0 +1,137 @@
+.builds-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.builds-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.builds-title {
+    font-weight: 700;
+    color: #1E293B;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.builds-subtitle {
+    color: #ffffff; 
+    font-size: 1.1rem;
+}
+
+.build-card-img-wrapper {
+    height: 220px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.build-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .build-img {
+    transform: scale(1.05);
+}
+
+.build-info-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.build-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.build-creator {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.build-desc {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    height: 40px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.build-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #475569;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.build-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4a9eff;
+    margin: 0;
+}
+
+.build-date {
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+/* modal specs */
+.specs-modal-content {
+    background: #fff;
+    color: #333;
+    padding: 1.5rem;
+}
+
+.specs-title {
+    color: #1E293B;
+    margin-bottom: 0.5rem;
+}
+
+.specs-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.spec-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.spec-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.spec-details strong {
+    color: #1a73e8;
+    margin-right: 5px;
+}

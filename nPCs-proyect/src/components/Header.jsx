@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/Logo.svg";
 
-import "./Header.css";
+import "../styles/Header.css";
 
 export default function Header() {
   const goHome = () => (window.location.href = "/");

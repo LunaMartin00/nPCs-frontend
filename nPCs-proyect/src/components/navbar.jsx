@@ -17,7 +17,7 @@ import {
   InputGroup,
   Button
 } from 'reactstrap';
-import './navbar.css';
+import '../styles/navbar.css';
 
 import PC2Icon from '../assets/PC2.svg';
 import CpuIcon from '../assets/cpu.svg';
