@@ -131,14 +131,6 @@ export default function SignIn({ onLogin }) {
           {error && (
           <div className="alert alert-danger" role="alert">
             <strong>Error:</strong> {error}
-            <button 
-              type="button" 
-              className="btn-close-alert" 
-              onClick={() => setError('')}
-              aria-label="Cerrar"
-            >
-              
-            </button>
           </div>
         )}
 
