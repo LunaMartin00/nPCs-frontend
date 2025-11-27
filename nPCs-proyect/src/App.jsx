@@ -11,6 +11,8 @@ import SignUpClient from "./components/SignUpClient.jsx";
 import SignUpShop from "./components/SignUpShop.jsx";
 import ArmarPC from "./components/ArmarPC.jsx";
 import SignIn from "./components/SignIn.jsx"; 
+import PoliticasPrivacidad from "./components/PoliticasPrivacidad.jsx";
+import TerminosCondiciones from "./components/TerminosCondiciones.jsx";
 
 
 import logo from "./assets/Logo.svg";
@@ -43,12 +45,12 @@ export default function App() {
         </main>
       ) : (
         <main className="hero">
-          <div className="hero-content">
+            <div className="hero-content">
             <h1>Bienvenidos a <img src={logo} alt="nPCs logo" className="hero-inline-logo" /></h1>
             <h2>Tu tienda de componentes de PC de confianza.</h2>
             <p>Ofrecemos una amplia variedad de componentes
               de alta calidad para que puedas armar tu PC ideal.</p>
-            <Link to="/armar-pc" className="boton">Montar PC</Link>
+            <Link to="/armar-pc" className="boton" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Montar PC</Link>
           </div>
         </main>
       )}
@@ -80,6 +82,8 @@ export default function App() {
           {/* 4. Rutas Extra (Placeholders o Redirecciones) */}
           <Route path="/productos/todos" element={<ProductList />} />
           <Route path="/armar-pc" element={<ArmarPC />} />
+          <Route path="/politicas-de-privacidad" element={<PoliticasPrivacidad />} />
+          <Route path="/terminos-y-condiciones" element={<TerminosCondiciones />} />
           <Route path="/builds" element={<div style={{ padding: "5rem", textAlign: "center", color: "white" }}><h2>Próximamente: Builds de Usuarios</h2></div>} />
 
         </Routes>

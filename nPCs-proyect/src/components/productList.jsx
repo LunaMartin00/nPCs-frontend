@@ -24,7 +24,6 @@ const ProductList = () => {
         setLoading(false);
       }
     };
-
     if (categoria) {
       fetchProducts();
     }

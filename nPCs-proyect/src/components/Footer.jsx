@@ -1,20 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/Processor 1.svg";
 import "../styles/App.css";
 
 export default function Footer({ onShowAbout }) {
     return (
 
-    <footer className = "footer">
+    <footer className = "footer footer--small">
         <div className = "container">
             <div className = 'footer_row'>
                     <div className = 'footer_section'>
                         <h4>Compañia </h4>
                         <ul>
                             <li> <a href = "#" onClick={(e)=>{e.preventDefault(); if(onShowAbout) onShowAbout();}}> Sobre nosotros </a></li>
-                            <li> <a href = "#"> Carreras </a></li>
-                            <li> <a href = "#"> Blog </a></li>
-                            <li> <a href = "#"> Prensa </a></li>
+                            <li> <Link to="/armar-pc" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}> Productos </Link></li>
+                            <li> <Link to="/politicas-de-privacidad" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}> Políticas de privacidad </Link></li>
+                            <li> <Link to="/terminos-y-condiciones" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}> Términos y condiciones </Link></li>
                         </ul>
                     
                     </div>
