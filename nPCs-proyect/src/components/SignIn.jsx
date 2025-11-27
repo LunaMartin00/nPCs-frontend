@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/SignUp.css';
 import axios from 'axios';
 
-export default function SignIn() {
+export default function SignIn({ onLogin }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -20,6 +20,8 @@ export default function SignIn() {
       ...prev,
       [name]: value
     }));
+    
+    if (error) setError('');
   };
 
   const handleSubmit = async (e) => {
@@ -27,45 +29,94 @@ export default function SignIn() {
     setLoading(true);
     setError('');
 
+
+    if (!formData.email || !formData.password) {
+      setError('Por favor, completa todos los campos');
+      setLoading(false);
+      return;
+    }
+
     try {
-
-
       const userData = {
-            email: formData.email,
-            password: formData.password
+        email: formData.email,
+        password: formData.password
       };
 
+      console.log('Enviando datos de login:', userData);
+
       const response = await axios.post(
-          'http://localhost:5000/signIn',
-          userData
+        'http://localhost:5000/signIn',
+        userData,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          timeout: 10000
+        }
       );
 
       const data = response.data;
 
       console.log('Login successful:', data);
       
-      localStorage.setItem('token', data._jwt);
+
+      localStorage.setItem('token', data._jwt || data.token);
       localStorage.setItem('userRole', data.role);
       localStorage.setItem('userEmail', formData.email);
       
-      if (data.role === 'encargado de tienda') {
-        navigate('/homepage-tienda'); 
-      } else if (data.role === 'cliente') {
-        navigate('/homepage-cliente'); 
+      
+      if (onLogin && typeof onLogin === 'function') {
+        console.log('Llamando onLogin con:', { role: data.role, email: formData.email });
+        onLogin(data.role, formData.email);
       } else {
-        navigate('/'); 
+        console.warn('onLogin no está disponible o no es una función');
+      }
+      
+      
+      console.log('Redirigiendo según rol:', data.role);
+      if (data.role === 'encargado de tienda') {
+        navigate('/homepage-tienda', { replace: true }); 
+      } else if (data.role === 'cliente') {
+        navigate('/homepage-cliente', { replace: true }); 
+      } else {
+        navigate('/', { replace: true }); 
       }
 
     } catch (err) {
 
-       if (err.response && err.response.status === 404) {
-        setError('Usuario no encontrado. Verifica tu email.');
-      } else if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
-      } else if (err.message) {
-        setError(err.message);
+      console.error('Error completo en login:', err);
+      
+      
+      if (err.response) {
+      
+        const status = err.response.status;
+        const message = err.response.data?.message || err.response.data?.error;
+        
+        switch (status) {
+          case 400:
+            setError('Datos de entrada inválidos');
+            break;
+          case 401:
+            setError('Credenciales incorrectas');
+            break;
+          case 404:
+            setError('Usuario no encontrado. Verifica tu email.');
+            break;
+          case 409:
+            setError('Conflicto con la cuenta');
+            break;
+          case 500:
+            setError('Error del servidor. Intenta más tarde.');
+            break;
+          default:
+            setError(message || `Error ${status}: Intenta nuevamente.`);
+        }
+      } else if (err.request) {
+        setError('No se pudo conectar con el servidor. Verifica tu conexión.');
+      } else if (err.code === 'ECONNABORTED') {
+        setError('Tiempo de espera agotado. Intenta nuevamente.');
       } else {
-        setError('Error al iniciar sesión. Intenta nuevamente.');
+        setError('Error inesperado. Intenta nuevamente.');
       }
     } finally {
       setLoading(false);
@@ -77,9 +128,17 @@ export default function SignIn() {
       <div className="signup-card">
         <h1>Iniciar Sesión</h1>
 
-        {error && (
+          {error && (
           <div className="alert alert-danger" role="alert">
-            {error}
+            <strong>Error:</strong> {error}
+            <button 
+              type="button" 
+              className="btn-close-alert" 
+              onClick={() => setError('')}
+              aria-label="Cerrar"
+            >
+              
+            </button>
           </div>
         )}
 
@@ -94,6 +153,8 @@ export default function SignIn() {
               onChange={handleChange}
               required
               placeholder="tu@email.com"
+              disabled={loading}
+              className={error ? 'error-field' : ''}
             />
           </div>
 
@@ -107,22 +168,35 @@ export default function SignIn() {
               onChange={handleChange}
               required
               placeholder="••••••••"
+              disabled={loading}
+              className={error ? 'error-field' : ''}
             />
           </div>
 
-          <button 
-            type="submit" 
-            className="btn-create-account"
-            disabled={loading}
-          >
-            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-          </button>
+
+          <div className="form-actions">
+            <button 
+              type="submit" 
+              className="btn-create-account"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Iniciando sesión...
+                </>
+              ) : (
+                'Iniciar Sesión'
+              )}
+            </button>
+          </div>
 
           <div className="signin-links">
             <Link to="/register" className="no-account-link">
               ¿No tienes cuenta? Regístrate
             </Link>
           </div>
+
         </form>
       </div>
     </div>
