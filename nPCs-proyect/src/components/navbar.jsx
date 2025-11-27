@@ -47,9 +47,9 @@ function Navigationbar(args) {
             </DropdownToggle>
             <DropdownMenu>
               {/* Rutas corregidas para coincidir con el App.js */}
-              <DropdownItem tag={Link} to="/explorar/procesadores">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/cpu">Procesadores</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/motherboards">Motherboards</DropdownItem>
-              <DropdownItem tag={Link} to="/explorar/tarjetas de video">Tarjetas de video</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/gpu">Tarjetas de video</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/memorias ram">Memorias RAM</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/almacenamiento">Almacenamiento</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/fuentes de poder">Fuentes de Poder</DropdownItem>
