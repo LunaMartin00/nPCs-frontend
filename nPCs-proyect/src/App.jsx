@@ -70,7 +70,6 @@ const PublicApp = ({ onShowAbout, showAbout, onLogin, onRegister }) => {
             />
           } 
         />
-        <Route path="/agregar-producto" element={<AddProductForm />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/signin" element={<SignIn onLogin={onLogin} />} />
         <Route path="/signup/cliente" element={<SignUpClient onRegister={onRegister} />} />

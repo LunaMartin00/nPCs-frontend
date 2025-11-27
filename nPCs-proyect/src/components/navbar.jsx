@@ -78,12 +78,7 @@ function Navigationbar(args) {
               Armar PC
             </NavLink>
           </NavItem>
-          <NavItem>
-          <NavLink tag={Link} to="/agregar-producto" className="nav-link-custom">
-              <span className="nav-icon">➕</span>
-              Agregar Producto
-              </NavLink>
-          </NavItem>
+
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret className="nav-link-custom">
               <img src={CpuIcon} alt="CPU" className="nav-icon-svg" />

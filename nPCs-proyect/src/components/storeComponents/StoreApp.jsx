@@ -10,6 +10,7 @@ import UserBuilds from "../UserBuilds.jsx";
 import PoliticasPrivacidad from "../PoliticasPrivacidad.jsx";
 import TerminosCondiciones from "../TerminosCondiciones.jsx";
 import SearchResults from "../searchResults.jsx";
+import AddProductForm from "../addProducts.jsx";
 
 import logo from "../../assets/Logo.svg";
 import "../../styles/App.css";
@@ -74,6 +75,8 @@ export default function StoreApp() {
         <Route path="politicas-de-privacidad" element= {<PoliticasPrivacidad/>} />
         <Route path="terminos-y-condiciones" element= {<TerminosCondiciones/>} />
         <Route path="search" element= {<SearchResults/>} />
+        <Route path="agregar-producto" element={<AddProductForm />} />
+
 
 
         <Route path="*" element={<HomeContent />} />

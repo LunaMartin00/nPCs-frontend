@@ -116,7 +116,7 @@ export default function AddProductForm() {
       };
 
       const response = await axios.post(
-        'http://localhost:5000/api/products',
+        'http://localhost:5000/addProducts',
         productData
       );
 

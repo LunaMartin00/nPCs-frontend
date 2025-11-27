@@ -59,11 +59,9 @@ export default function SignIn({ onLogin }) {
 
       console.log('Login successful:', data);
       
-
       localStorage.setItem('token', data._jwt || data.token);
       localStorage.setItem('userRole', data.role);
       localStorage.setItem('userEmail', formData.email);
-      
       
       if (onLogin && typeof onLogin === 'function') {
         console.log('Llamando onLogin con:', { role: data.role, email: formData.email });

@@ -22,6 +22,7 @@ import '../../styles/navbar.css';
 import PC2Icon from '../../assets/PC2.svg';
 import CpuIcon from '../../assets/cpu.svg';
 import PCcomIcon from '../../assets/PCcom.svg';
+import AddProductForm from '../addProducts';
 
 function ClientNavbar(args) {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,6 +104,14 @@ function ClientNavbar(args) {
               Builds de Usuarios
             </NavLink>
           </NavItem>
+
+          <NavItem>
+            <NavLink tag={Link} to="/tienda/agregar-producto" className="nav-link-custom">
+              <span className="nav-icon">➕</span>
+              Agregar Producto
+            </NavLink>
+          </NavItem>
+
         </Nav>
 
         <div className="search-container position-relative">
