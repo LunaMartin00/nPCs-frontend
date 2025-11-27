@@ -90,9 +90,9 @@ function Navigationbar(args) {
               Explorar Productos
             </DropdownToggle>
             <DropdownMenu>
-              <DropdownItem tag={Link} to="/explorar/CPU">Procesadores</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/cpu">Procesadores</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/placas-madre">Motherboards</DropdownItem>
-              <DropdownItem tag={Link} to="/explorar/tarjetas-graficas">Tarjetas de video</DropdownItem>
+              <DropdownItem tag={Link} to="/explorar/gpu">Tarjetas de video</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/memorias-ram">Memorias RAM</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/almacenamiento">Almacenamiento</DropdownItem>
               <DropdownItem tag={Link} to="/explorar/fuentes-poder">Fuentes de Poder</DropdownItem>
